@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DropDown from './components/DropDown/DropDown';
+import { OptionProps } from './types/types';
 
 function App() {
+
+const options: OptionProps[] = [
+  {
+    label: "Rename", 
+    optionAction: () => {console.log("Custom action - Rename")}, 
+    primary: true,
+    toggle: true, 
+  },   
+  {
+    label: "Delete", 
+    optionAction: () => {console.log("Custom action - Delete")}, 
+    toggle: true, 
+  },   
+  {
+    label: "Share", 
+    optionAction: () => {console.log("Custom action - Share")}, 
+  },   
+  {
+    label: "...? ", 
+    optionAction: () => {console.log("Custom action - ...")}, 
+  }, 
+
+]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <DropDown /> */}
+
+      <DropDown options={options}/>
+      {/* <DropDown left/> */}
     </div>
   );
 }
